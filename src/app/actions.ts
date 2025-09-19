@@ -4,8 +4,9 @@ import type { z } from 'zod';
 import { validateUuidGuess } from '@/ai/flows/validate-uuid-guess';
 import type { UuidSchema } from '@/lib/schemas';
 
-// The secret UUID to be guessed
-const TARGET_UUID = 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11';
+// The secret UUID to be guessed. Use environment variable or a default.
+const TARGET_UUID =
+  process.env.TARGET_UUID || 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11';
 
 type GuessResult = {
   success: boolean;
